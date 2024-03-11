@@ -3,7 +3,6 @@ import { Alarm, ArrowTopRight, BellTilt, Dot, LoveComment, Plus, Telegram } from
 import { eventNavItems } from "@/config/site";
 import { Button } from "@nextui-org/button";
 import { Tabs, Tab } from "@nextui-org/tabs";
-import { button as buttonStyles } from "@nextui-org/theme"
 import { Card, CardBody } from "@nextui-org/card";
 import { Chip } from "@nextui-org/chip";
 import { Divider } from "@nextui-org/divider";
