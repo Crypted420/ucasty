@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.tabs-container::-webkit-scrollbar {
+  width: 0;
+}
