@@ -5,7 +5,8 @@ import { fontJakarta } from "@/config/fonts";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import clsx from "clsx";
-
+import { useRouter } from "next/navigation";
+import { InPersonNavbar } from '@/components/inpersonnavbar';
 export const metadata: Metadata = {
 	title: {
 		default: siteConfig.name,
@@ -28,6 +29,7 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
+
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<head />
@@ -43,10 +45,11 @@ export default function RootLayout({
 						<main className="container mx-auto max-w-7x mt-4 md:px-6 px-4 flex-grow">
 							{children}
 						</main>
-
 					</div>
 				</Providers>
 			</body>
 		</html>
 	);
 }
+
+

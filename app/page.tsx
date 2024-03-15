@@ -7,7 +7,7 @@ import { Card, CardBody } from "@nextui-org/card";
 import { Chip } from "@nextui-org/chip";
 import { Divider } from "@nextui-org/divider";
 
-export default function Home() {
+export default function InPerson() {
 	return (
 		<section className="flex md:max-w-[992px] mx-auto flex-col items-center justify-center gap-4 py-8 md:py-10">
 			<div className=" w-full flex justify-between items-center">

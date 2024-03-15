@@ -20,6 +20,7 @@
     "@nextui-org/link": "2.0.26",
     "@nextui-org/navbar": "2.0.27",
     "@nextui-org/snippet": "2.0.30",
+    "@nextui-org/spacer": "^2.0.24",
     "@nextui-org/switch": "2.0.25",
     "@nextui-org/system": "2.0.15",
     "@nextui-org/tabs": "^2.0.26",
@@ -46,7 +47,6 @@
   },
   "description": "This is a template for creating applications using Next.js 13 (app directory) and NextUI (v2).",
   "main": "next.config.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/Crypted420/ucasty.git"

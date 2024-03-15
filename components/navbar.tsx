@@ -1,3 +1,4 @@
+'use client';
 import {
 	Navbar as NextUINavbar,
 	NavbarContent,
@@ -13,9 +14,13 @@ import {
 	Bell,
 	ChevronLeft,
 } from "@/components/icons";
+import { usePathname, useRouter } from "next/navigation";
+import { InPersonNavbar } from "./inpersonnavbar";
 
 
 export const Navbar = () => {
+
+	const pathname = usePathname();
 
 
 	return (
@@ -23,7 +28,7 @@ export const Navbar = () => {
 			<NavbarContent
 				className="relative basis-1/5 sm:basis-full  mt-4 "
 			>
-				<div className="w-full md:max-w-[992px]  flex justify-between mx-auto">
+				{pathname.match('/inperson-event') ? <InPersonNavbar /> : <div className="w-full md:max-w-[992px]  flex justify-between mx-auto">
 					<div className="w-fit">
 						<NavbarItem className="flex items-center md:flex">
 							<Button isIconOnly
@@ -65,7 +70,7 @@ export const Navbar = () => {
 							</Badge>
 						</NavbarItem>
 					</div>
-				</div>
+				</div>}
 			</NavbarContent>
 
 		</NextUINavbar >
