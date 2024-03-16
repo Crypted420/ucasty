@@ -74,7 +74,7 @@ export default function InPersonEventPage() {
                         aria-label="rating"
                         size="lg"
                         value={50}
-                        color="#5E53F5"
+                        color="primary"
                         showValueLabel={true}
                         className="w-full"
                     />
@@ -82,21 +82,21 @@ export default function InPersonEventPage() {
                         aria-label="rating"
                         size="lg"
                         value={65}
-                        color="#5E53F5"
+                        color="primary"
                         showValueLabel={true}
                         className="w-full"
                     /><Progress
                         aria-label="rating"
                         size="lg"
                         value={20}
-                        color="#5E53F5"
+                        color="primary"
                         showValueLabel={true}
                         className="w-full"
                     /><Progress
                         aria-label="rating"
                         size="lg"
                         value={60}
-                        color="#5E53F5"
+                        color="primary"
                         showValueLabel={true}
                         className="w-full"
                     />
