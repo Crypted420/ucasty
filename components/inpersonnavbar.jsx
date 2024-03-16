@@ -17,6 +17,10 @@ import {
   Polls,
   Chat,
   TIcon,
+  User,
+  Dashboard,
+  Present,
+  Copy,
 } from "@/components/icons";
 import { Card, CardBody } from "@nextui-org/card";
 import { subtitle, title } from "./primitives";
@@ -26,7 +30,7 @@ import {
   DropdownTrigger,
   DropdownMenu,
   DropdownSection,
-  DropdownItem
+  DropdownItem,
 } from "@nextui-org/dropdown";
 import { Spacer } from "@nextui-org/spacer";
 
@@ -42,11 +46,11 @@ export const InPersonNavbar = () => {
           </div>
           <div className="w-fit flex gap-4 items-center">
             <NavbarItem>
-              <Card radius="none" shadow="lg">
+              <Card radius={90} shadow="lg">
                 <CardBody>
                   <div className="flex items-center gap-4">
                     <Button isIconOnly color="success">
-                      <ChatGroup size={40} />
+                      <ChatGroup width={20} height={20} />
                     </Button>
                     <h2 className="">Questions</h2>
                     <Chip style={{ borderBottomLeftRadius: 20 }}>
@@ -61,7 +65,7 @@ export const InPersonNavbar = () => {
               <div className="flex items-center gap-4 ">
                 {" "}
                 <Button size="lg" isIconOnly variant="ghost" radius="lg">
-                  <Polls />
+                  <Polls width={20} height={20} />
                 </Button>
                 <h2 className="font-semibold">Polls</h2>
               </div>
@@ -70,7 +74,7 @@ export const InPersonNavbar = () => {
             <NavbarItem className="flex items-center md:flex">
               <div className="flex items-center gap-2 ">
                 <Button size="lg" isIconOnly variant="ghost">
-                  <Chat />
+                  <Chat width={20} height={20} />
                 </Button>
                 <h2 className="font-semibold">Chat</h2>
               </div>
@@ -79,7 +83,7 @@ export const InPersonNavbar = () => {
             <NavbarItem className="flex items-center md:flex">
               <div className="flex items-center gap-2 ">
                 <Button size="lg" isIconOnly variant="ghost" radius="lg">
-                  <TIcon />
+                  <TIcon width={20} height={20} />
                 </Button>
               </div>
             </NavbarItem>
@@ -88,51 +92,88 @@ export const InPersonNavbar = () => {
 
             <NavbarItem className="flex items-center md:flex">
               <div className="flex items-center gap-2 ">
-                <Button size="lg" isIconOnly variant="ghost" radius="lg">
-                  <ThreeDots />
-                </Button>
-
                 <Dropdown>
-      <DropdownTrigger>
-        <Button 
-          variant="bordered" 
-        >
-          Open Menu
-        </Button>
-      </DropdownTrigger>
-      <DropdownMenu variant="faded" aria-label="Dropdown menu with icons">
-        <DropdownItem
-          key="new"
-          shortcut="⌘N"
-          startContent={<AddNoteIcon className={iconClasses} />}
-        >
-          New file
-        </DropdownItem>
-        <DropdownItem
-          key="copy"
-          shortcut="⌘C"
-          startContent={<CopyDocumentIcon className={iconClasses} />}
-        >
-          Copy link
-        </DropdownItem>
-        <DropdownItem
-          key="edit"
-          shortcut="⌘⇧E"
-          startContent={<EditDocumentIcon className={iconClasses} />}
-        >
-          Edit file
-        </DropdownItem>
-        <DropdownItem
-          key="delete"
-          className="text-danger"
-          color="danger"
-          shortcut="⌘⇧D"
-          startContent={<DeleteDocumentIcon className={cn(iconClasses, "text-danger")} />}
-        >
-          Delete file
-        </DropdownItem>
-      </DropdownMenu>
-    </Dropdown>
+                  <DropdownTrigger>
+                    <Button size="lg" isIconOnly variant="ghost" radius="lg">
+                      <ThreeDots />
+                    </Button>
+                  </DropdownTrigger>
+                  <DropdownMenu
+                    variant="faded"
+                    aria-label="Dropdown menu with icons"
+                  >
+                    <DropdownItem
+                      startContent={
+                        <Button
+                          size="lg"
+                          isIconOnly
+                          variant="faded"
+                          radius="lg"
+                        >
+                          <User width={20} height={20} />
+                        </Button>
+                      }
+                    >
+                      <h3 className="font-bold">Login</h3>
+                    </DropdownItem>
+                    <DropdownItem
+                      startContent={
+                        <Button
+                          size="lg"
+                          isIconOnly
+                          variant="faded"
+                          radius="lg"
+                        >
+                          <Dashboard width={20} height={20} />
+                        </Button>
+                      }
+                    >
+                      <h3 className="font-bold">Admin Dashboard</h3>
+                    </DropdownItem>{" "}
+                    <DropdownItem
+                      startContent={
+                        <Button
+                          size="lg"
+                          isIconOnly
+                          variant="faded"
+                          radius="lg"
+                        >
+                          <Present width={20} height={20} />
+                        </Button>
+                      }
+                    >
+                      <h3 className="font-bold">Present Mode</h3>
+                    </DropdownItem>
+                    <DropdownItem
+                      startContent={
+                        <Button
+                          size="lg"
+                          isIconOnly
+                          variant="faded"
+                          radius="lg"
+                        >
+                          <Copy width={20} height={20} />
+                        </Button>
+                      }
+                    >
+                      <h3 className="font-bold">Copy evenet link</h3>
+                    </DropdownItem>
+                    <DropdownItem
+                      startContent={
+                        <Button
+                          size="lg"
+                          isIconOnly
+                          variant="faded"
+                          radius="lg"
+                        >
+                          <ThreeDots />
+                        </Button>
+                      }
+                    >
+                      <h3 className="font-bold">Live Transcript</h3>
+                    </DropdownItem>
+                  </DropdownMenu>
+                </Dropdown>
               </div>
             </NavbarItem>
           </div>
