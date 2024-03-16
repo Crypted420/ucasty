@@ -24,11 +24,12 @@ function Searcher() {
             className="fixed top-0 left-0 z-90 w-[400px] bg-black h-[100vh] z-50"
 
         >
+            {/* Body */}
             <div className="w-full h-[70%] relative rounded-3xl mt-6" style={{
                 transform: "translate(20px, 20px)",
                 border: "1px solid #272729",
             }}>
-                {/* Body */}
+                <div className="absolute w-full h-[70%] bg-red-50 faded-gradient rounded-3xl"></div>
                 <div className="w-full h-full justify-end pb-[25%] px-4 overflow-y-auto remove-scroll-bar">
                     <div className="w-full h-fit flex justify-start items-center p-2">
                         <p>Fugiat consequat dolore in consequat nisi consectetur sunt et adipisicing ea amet sit. Enim in laborum amet anim excepteur nostrud labore cillum ex irure sunt laboris. Culpa dolore exercitation est incididunt tempor pariatur. Ullamco velit do sint consequat incididunt Lorem id culpa ullamco sint ut quis.Consectetur proident nisi est irure aute quis excepteur minim amet reprehenderit enim duis occaecat ut. Et quis aliquip nulla sunt consectetur ipsum magna aliqua magna. Eiusmod ut culpa id dolore eu consequat officia velit et sit ea non. Eu officia laboris voluptate deserunt labore eiusmod dolore velit adipisicing. Laboris non anim incididunt laboris reprehenderit aliqua. Labore occaecat quis qui Lorem minim tempor. Ex in fugiat cillum veniam proident eiusmod pariatur nulla irure aliquip irure commodo sint consectetur.</p>
