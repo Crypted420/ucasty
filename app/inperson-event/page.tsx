@@ -17,21 +17,27 @@ import {
     DropdownSection,
     DropdownItem,
 } from "@nextui-org/dropdown";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export default function InPersonEventPage() {
-
-    const postData = Array.from({ length: 8 }, () => ({
-        user: faker.person.fullName(),
-        content: faker.lorem.paragraphs(),
-        picture: faker.image.avatar(),
-        reactionCount: Math.floor(Math.random() * 50),
-        emoji: '😄'
-    }));
     const [showChat, isShowingChat] = useState(false);
+    const [postData, setPostData] = useState([{}]);
+
+    useEffect(() => {
+        let generatePosts = Array.from({ length: 8 }, () => ({
+            user: faker.person.fullName(),
+            content: faker.lorem.paragraphs(),
+            picture: faker.image.avatar(),
+            reactionCount: Math.floor(Math.random() * 50),
+            reactProfilesPics: Array.from({ length: Math.floor(Math.random() * 5) }, () => (faker.image.avatar())),
+            emoji: '😄',
+        }));
+        // console.log(generatePosts)
+        setPostData(generatePosts);
+    }, [])
     return (
         <>
             {/* Chat */}
-            {showChat && <aside className="fixed right-0  z-90 w-[400px] bg-[#000] h-[70vh] rounded-3xl " style={{ transform: 'translate(-20px, 20px)', border: '1px solid #272729' }}>
+            {showChat && <aside className="fixed right-0  z-90 w-[400px] bg-[#000] h-[70vh] rounded-3xl z-50" style={{ transform: 'translate(-20px, 20px)', border: '1px solid #272729' }}>
                 <div className="w-full h-full relative">
                     {/* Header */}
                     <div className="w-full h-[15%] flex items-center justify-around fixed px-2"  >
@@ -206,17 +212,17 @@ export default function InPersonEventPage() {
 
                 <div className="flex flex-col gap-6 w-full">
                     {
-                        postData.map((e, index) => {
+                        postData.map((post, index) => {
 
-                            return <Card fullWidth key={index} onClick={() => isShowingChat(true)} isHoverable={true} style={{ cursor: 'pointer', paddingInline: '1.2rem' }}>
-                                <CardBody>
+                            return <Card fullWidth key={index} isHoverable={true} style={{ cursor: 'pointer', paddingInline: '1.2rem' }}>
+                                <CardBody onClick={() => isShowingChat(!showChat)} >
                                     <Spacer y={2} />
                                     <div className="flex justify-between w-full">
                                         {/* Profile info */}
                                         <div className="flex gap-4">
-                                            <Avatar src={e.picture} size="lg" radius="md" />
+                                            <Avatar src={post.picture} size="lg" radius="md" />
 
-                                            <p className="inline-block pt-2">{e.user}</p>
+                                            <p className="inline-block pt-2">{post.user}</p>
                                         </div>
                                         {/* Reactions */}
                                         <div className="flex items-center">
@@ -235,14 +241,14 @@ export default function InPersonEventPage() {
                                             <Chip variant="bordered" size="lg" avatar={
                                                 <p>👍😍</p>
                                             }>
-                                                <h3 className="px-2"><span></span> {e.reactionCount}</h3>
+                                                <h3 className="px-2"><span></span> {post.reactionCount}</h3>
                                             </Chip>
 
                                         </div>
                                     </div>
                                     <Spacer y={4} />
                                     <p className="font-md my-1">
-                                        {e.content}
+                                        {post.content}
                                     </p>
                                     <Spacer y={2} />
 

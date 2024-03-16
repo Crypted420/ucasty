@@ -5,3 +5,7 @@
 .tabs-container::-webkit-scrollbar {
   width: 0;
 }
+
+body {
+  user-select: none;
+}
