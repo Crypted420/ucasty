@@ -33,8 +33,11 @@ import {
   DropdownItem,
 } from "@nextui-org/dropdown";
 import { Spacer } from "@nextui-org/spacer";
+import { usePathname, useRouter } from "next/navigation";
 
 export const InPersonNavbar = () => {
+  const router = useRouter();
+  const pathname = usePathname();
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
       <NavbarContent className="relative basis-1/5 sm:basis-full  mt-4 ">
@@ -49,7 +52,15 @@ export const InPersonNavbar = () => {
               <Card radius={90} shadow="lg">
                 <CardBody>
                   <div className="flex items-center gap-4">
-                    <Button isIconOnly color="success">
+                    <Button
+                      onClick={() => router.push("/inperson-event")}
+                      isIconOnly
+                      color={
+                        pathname.match("/inperson-event")
+                          ? "success"
+                          : "default"
+                      }
+                    >
                       <ChatGroup width={20} height={20} />
                     </Button>
                     <h2 className="">Questions</h2>
@@ -64,7 +75,14 @@ export const InPersonNavbar = () => {
             <NavbarItem className="flex items-center md:flex">
               <div className="flex items-center gap-4 ">
                 {" "}
-                <Button size="lg" isIconOnly variant="ghost" radius="lg">
+                <Button
+                  onClick={() => router.push("/polls")}
+                  size="lg"
+                  isIconOnly
+                  variant={pathname.match("/polls") ? "solid" : "ghost"}
+                  radius="lg"
+                  color={pathname.match("/polls") ? "success" : "default"}
+                >
                   <Polls width={20} height={20} />
                 </Button>
                 <h2 className="font-semibold">Polls</h2>
@@ -87,8 +105,11 @@ export const InPersonNavbar = () => {
                 </Button>
               </div>
             </NavbarItem>
-
-            <Divider orientation="vertical" />
+            <NavbarItem>
+              <div className="w-fit h-8 ">
+                <Divider orientation="vertical" />
+              </div>
+            </NavbarItem>
 
             <NavbarItem className="flex items-center md:flex">
               <div className="flex items-center gap-2 ">

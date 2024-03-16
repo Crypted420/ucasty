@@ -1,4 +1,4 @@
-export default function InPersonEvent({
+export default function Polls({
 	children,
 }: {
 	children: React.ReactNode;
@@ -7,5 +7,6 @@ export default function InPersonEvent({
 		<>
 			{children}
 		</>
+
 	);
 }

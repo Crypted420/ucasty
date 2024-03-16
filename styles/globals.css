@@ -5,6 +5,12 @@
 .tabs-container::-webkit-scrollbar {
   width: 0;
 }
+.remove-scroll-bar::-webkit-scrollbar {
+  width: 0;
+}
+.faded-gradient {
+  background-color: black;
+}
 
 body {
   user-select: none;
