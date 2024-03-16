@@ -6,10 +6,7 @@ import {
     Polls,
     Smiley,
 } from "@/components/icons";
-import { title } from "@/components/primitives";
-import { Divider } from "@nextui-org/divider";
 import { Input } from "@nextui-org/input";
-import { Spacer } from "@nextui-org/spacer";
 import { Button } from "@nextui-org/button";
 import { Card, CardBody } from "@nextui-org/card";
 import { useRouter } from "next/navigation";

@@ -103,7 +103,9 @@ export default function InPersonEventPage() {
                     }
                 />
                 <Spacer y={2} />
+
                 <Divider orientation="horizontal" />
+
                 <div className="w-full">
                     <Dropdown>
                         <DropdownTrigger>
@@ -285,7 +287,7 @@ export default function InPersonEventPage() {
                                                 </div>
                                                 <Spacer x={20} />
                                                 <Chip variant="bordered" size="lg" avatar={<p className="tracking-widest" style={{ letterSpacing: '2px' }}>😍😍🥸</p>}>
-                                                    <h3 className="px-2">
+                                                    <h3 className="ml-4">
                                                         {post.reactionCount}
                                                     </h3>
                                                 </Chip>
