@@ -18,9 +18,27 @@ import {
     DropdownItem,
 } from "@nextui-org/dropdown";
 import { useEffect, useState } from "react";
+
+interface Post {
+    user: string,
+    content: string,
+    picture: string,
+    reactionCount: number,
+    reactProfilesPics: [],
+    emoji: string,
+}
+
+
 export default function InPersonEventPage() {
     const [showChat, isShowingChat] = useState(false);
-    const [postData, setPostData] = useState([{}]);
+    const [postData, setPostData] = useState([{
+        user: faker.person.fullName(),
+        content: faker.lorem.paragraphs(),
+        picture: faker.image.avatar(),
+        reactionCount: Math.floor(Math.random() * 50),
+        reactProfilesPics: Array.from({ length: Math.floor(Math.random() * 5) }, () => (faker.image.avatar())),
+        emoji: '😄',
+    }]);
 
     useEffect(() => {
         let generatePosts = Array.from({ length: 8 }, () => ({
@@ -31,7 +49,6 @@ export default function InPersonEventPage() {
             reactProfilesPics: Array.from({ length: Math.floor(Math.random() * 5) }, () => (faker.image.avatar())),
             emoji: '😄',
         }));
-        // console.log(generatePosts)
         setPostData(generatePosts);
     }, [])
     return (
