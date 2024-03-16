@@ -39,10 +39,13 @@ interface Post {
     reactionCount: number;
     reactProfilesPics: [];
     emoji: string;
+    hasModoerator: false
+
 }
 
 export default function InPersonEventPage() {
     const [showChat, isShowingChat] = useState(false);
+    const moderatorBool = [true, false]
     const [postData, setPostData] = useState([
         {
             user: faker.person.fullName(),
@@ -54,6 +57,7 @@ export default function InPersonEventPage() {
                 () => faker.image.avatar()
             ),
             emoji: "😄",
+            hasModoerator: false,
         },
     ]);
     const [focusedQ, setFocusedQ] = useState(-1);
@@ -68,9 +72,12 @@ export default function InPersonEventPage() {
                 () => faker.image.avatar()
             ),
             emoji: "😄",
+            hasModoerator: moderatorBool[Math.floor(Math.random() * moderatorBool.length)]
+
         }));
         setPostData(generatePosts);
     }, []);
+
     return (
         <>
             <Searcher />
@@ -355,159 +362,176 @@ export default function InPersonEventPage() {
                 <div className="flex flex-col gap-6 w-full">
                     {postData.map((post, index) => {
                         return (
-                            <Card
-                                fullWidth
-                                key={index}
-                                // isHoverable={true}
-                                style={{ cursor: "pointer", paddingInline: "1.2rem" }}
-                            >
-                                <CardBody onClick={() => setFocusedQ(index)}>
-                                    <Spacer y={2} />
-                                    <div className="flex justify-between w-full">
-                                        {/* Profile info */}
-                                        <div className="flex gap-4">
-                                            <Avatar src={post.picture} size="lg" radius="md" />
+                            <div
+                                key={index}>
+                                <Card
+                                    fullWidth
+                                    style={{ cursor: "pointer", paddingInline: "1.2rem" }}
+                                >
+                                    <CardBody onClick={() => setFocusedQ(index)}>
+                                        <Spacer y={2} />
+                                        <div className="flex justify-between w-full">
+                                            {/* Profile info */}
+                                            <div className="flex gap-4">
+                                                <Avatar src={post.picture} size="lg" radius="md" />
 
-                                            <p className="inline-block pt-2">{post.user}</p>
-                                        </div>
-                                        {/* Reactions */}
-                                        <div className="flex items-center">
-                                            <div className="flex items-center gap-5">
-
-                                                <AvatarGroup isBordered>
-                                                    <Avatar
-                                                        src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                                                        size="sm"
-                                                        radius="md"
-                                                    />
-                                                    <Avatar
-                                                        src="https://i.pravatar.cc/150?u=a04258a2462d826712d"
-                                                        size="sm"
-                                                        radius="md"
-                                                    />
-                                                    <Avatar
-                                                        src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-                                                        size="sm"
-                                                        radius="md"
-                                                    />
-                                                </AvatarGroup>
-
-                                                <div className="w-full">
-                                                    <Dropdown>
-                                                        <DropdownTrigger>
-                                                            <Button variant="bordered" isIconOnly>
-                                                                😍
-                                                            </Button>
-                                                        </DropdownTrigger>
-                                                        <DropdownMenu variant="faded" aria-label="Dropdown menu with icons">
-                                                            <DropdownItem>
-                                                                <div className="flex justify-center gap-2 items-center">
-                                                                    <Button variant="ghost" isIconOnly>
-                                                                        All
-                                                                    </Button>
-                                                                    <Button variant="ghost" isIconOnly>
-                                                                        😍
-                                                                    </Button><Button variant="ghost" isIconOnly>
-                                                                        🥸
-                                                                    </Button><Button variant="ghost" isIconOnly>
-                                                                        😊
-                                                                    </Button>
-                                                                </div>
-                                                            </DropdownItem>
-                                                            <DropdownItem>
-                                                                <div className="flex justify-between gap-4 items-center">
-                                                                    <div className="flex items-center gap-2">
-                                                                        <Avatar
-                                                                            src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                                                                            size="sm"
-                                                                            radius="sm"
-                                                                        />
-                                                                        <p className="text-sm">{faker.person.fullName()}</p>
-                                                                    </div>
-                                                                    <Spacer x={10} />
-                                                                    <p>😊</p>
-                                                                </div>
-                                                            </DropdownItem>
-
-                                                            <DropdownItem>
-                                                                <div className="flex justify-between gap-4 items-center">
-                                                                    <div className="flex items-center gap-2">
-                                                                        <Avatar
-                                                                            src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                                                                            size="sm"
-                                                                            radius="sm"
-                                                                        />
-                                                                        <p className="text-sm">{faker.person.fullName()}</p>
-                                                                    </div>
-                                                                    <p>🥳</p>
-                                                                </div>
-                                                            </DropdownItem>
-
-                                                            <DropdownItem>
-                                                                <div className="flex justify-between gap-4 items-center">
-                                                                    <div className="flex items-center gap-2">
-                                                                        <Avatar
-                                                                            src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                                                                            size="sm"
-                                                                            radius="sm"
-                                                                        />
-                                                                        <p className="text-sm">{faker.person.fullName()}</p>
-                                                                    </div>
-                                                                    <p>😒</p>
-                                                                </div>
-                                                            </DropdownItem>
-                                                        </DropdownMenu>
-                                                    </Dropdown>
-                                                </div>
-
+                                                <p className="inline-block pt-2">{post.user}</p>
                                             </div>
-                                            <Spacer x={20} />
-                                            <Chip variant="bordered" size="lg" avatar={<p className="tracking-widest" style={{ letterSpacing: '2px' }}>😍😍🥸</p>}>
-                                                <h3 className="px-2">
-                                                    {post.reactionCount}
-                                                </h3>
-                                            </Chip>
+                                            {/* Reactions */}
+                                            <div className="flex items-center">
+                                                <div className="flex items-center gap-5">
+
+                                                    <AvatarGroup isBordered>
+                                                        <Avatar
+                                                            src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                                                            size="sm"
+                                                            radius="md"
+                                                        />
+                                                        <Avatar
+                                                            src="https://i.pravatar.cc/150?u=a04258a2462d826712d"
+                                                            size="sm"
+                                                            radius="md"
+                                                        />
+                                                        <Avatar
+                                                            src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                                                            size="sm"
+                                                            radius="md"
+                                                        />
+                                                    </AvatarGroup>
+
+                                                    <div className="w-full">
+                                                        <Dropdown>
+                                                            <DropdownTrigger>
+                                                                <Button variant="bordered" isIconOnly>
+                                                                    😍
+                                                                </Button>
+                                                            </DropdownTrigger>
+                                                            <DropdownMenu variant="faded" aria-label="Dropdown menu with icons">
+                                                                <DropdownItem>
+                                                                    <div className="flex justify-center gap-2 items-center">
+                                                                        <Button variant="ghost" isIconOnly>
+                                                                            All
+                                                                        </Button>
+                                                                        <Button variant="ghost" isIconOnly>
+                                                                            😍
+                                                                        </Button><Button variant="ghost" isIconOnly>
+                                                                            🥸
+                                                                        </Button><Button variant="ghost" isIconOnly>
+                                                                            😊
+                                                                        </Button>
+                                                                    </div>
+                                                                </DropdownItem>
+                                                                <DropdownItem>
+                                                                    <div className="flex justify-between gap-4 items-center">
+                                                                        <div className="flex items-center gap-2">
+                                                                            <Avatar
+                                                                                src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                                                                                size="sm"
+                                                                                radius="sm"
+                                                                            />
+                                                                            <p className="text-sm">{faker.person.fullName()}</p>
+                                                                        </div>
+                                                                        <Spacer x={10} />
+                                                                        <p>😊</p>
+                                                                    </div>
+                                                                </DropdownItem>
+
+                                                                <DropdownItem>
+                                                                    <div className="flex justify-between gap-4 items-center">
+                                                                        <div className="flex items-center gap-2">
+                                                                            <Avatar
+                                                                                src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                                                                                size="sm"
+                                                                                radius="sm"
+                                                                            />
+                                                                            <p className="text-sm">{faker.person.fullName()}</p>
+                                                                        </div>
+                                                                        <p>🥳</p>
+                                                                    </div>
+                                                                </DropdownItem>
+
+                                                                <DropdownItem>
+                                                                    <div className="flex justify-between gap-4 items-center">
+                                                                        <div className="flex items-center gap-2">
+                                                                            <Avatar
+                                                                                src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                                                                                size="sm"
+                                                                                radius="sm"
+                                                                            />
+                                                                            <p className="text-sm">{faker.person.fullName()}</p>
+                                                                        </div>
+                                                                        <p>😒</p>
+                                                                    </div>
+                                                                </DropdownItem>
+                                                            </DropdownMenu>
+                                                        </Dropdown>
+                                                    </div>
+
+                                                </div>
+                                                <Spacer x={20} />
+                                                <Chip variant="bordered" size="lg" avatar={<p className="tracking-widest" style={{ letterSpacing: '2px' }}>😍😍🥸</p>}>
+                                                    <h3 className="px-2">
+                                                        {post.reactionCount}
+                                                    </h3>
+                                                </Chip>
+                                            </div>
+
                                         </div>
+                                        <Spacer y={4} />
+                                        <p className="font-md my-1">{post.content}</p>
+                                        <Spacer y={4} />
 
-                                    </div>
-                                    <Spacer y={4} />
-                                    <p className="font-md my-1">{post.content}</p>
-                                    <Spacer y={4} />
+                                        <div
+                                            className="w-full flex items-center justify-around"
+                                            style={{
+                                                display: focusedQ == index ? 'flex' : 'none'
+                                            }}
+                                        >
+                                            <Input
+                                                size="lg"
+                                                radius="full"
+                                                type="text"
+                                                placeholder="Type a answer"
+                                                variant="flat"
 
-                                    <div
-                                        className="w-full flex items-center justify-around"
-                                        style={{
-                                            display: focusedQ == index ? 'flex' : 'none'
-                                        }}
-                                    >
-                                        <Input
-                                            size="lg"
-                                            radius="full"
-                                            type="text"
-                                            placeholder="Type a answer"
-                                            variant="flat"
-
-                                            startContent={
-                                                <Smiley
-                                                    width={20}
-                                                    height={20}
-                                                    className="text-2xl text-default-400 pointer-events-none flex-shrink-0"
-                                                />
-                                            }
-                                            endContent={
-                                                <Button variant="faded" isIconOnly radius="lg">
-                                                    <ArrowUp
+                                                startContent={
+                                                    <Smiley
                                                         width={20}
                                                         height={20}
                                                         className="text-2xl text-default-400 pointer-events-none flex-shrink-0"
                                                     />
-                                                </Button>
-                                            }
-                                        />
-                                    </div>
-                                    <Spacer y={2} />
-                                </CardBody>
-                            </Card>
+                                                }
+                                                endContent={
+                                                    <Button variant="faded" isIconOnly radius="lg">
+                                                        <ArrowUp
+                                                            width={20}
+                                                            height={20}
+                                                            className="text-2xl text-default-400 pointer-events-none flex-shrink-0"
+                                                        />
+                                                    </Button>
+                                                }
+                                            />
+                                        </div>
+                                        <Spacer y={2} />
+                                    </CardBody>
+                                </Card>
+                                <Spacer y={4} />
+
+                                {/* Moderator card */}
+                                {post.hasModoerator && <div className="w-[95%] float-right">
+                                    <Card
+                                        fullWidth
+                                        key={index}
+                                        className="py-5"
+                                        style={{ cursor: "pointer", paddingInline: "1.2rem", background: 'rgba(79, 69, 217, 0.3)' }}
+                                    >
+                                        <CardBody>
+                                            <h1 className="font-bold mb-2">Moderator</h1>
+                                            <p className="text-sm">{faker.definitions.commerce.product_description}</p>
+                                        </CardBody>
+                                    </Card>
+                                </div>}
+                            </div>
                         );
                     })}
                 </div>

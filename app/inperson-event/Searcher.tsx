@@ -21,7 +21,7 @@ function Searcher() {
     return (
 
         <aside
-            className="fixed top-0 left-0  z-90 w-[400px] bg-[#000] h-[100vh]  z-50"
+            className="fixed top-0 left-0 z-90 w-[400px] bg-black h-[100vh] z-50"
 
         >
             <div className="w-full h-[70%] relative rounded-3xl mt-6" style={{
