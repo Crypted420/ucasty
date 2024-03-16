@@ -30,6 +30,7 @@ import {
     DropdownItem,
 } from "@nextui-org/dropdown";
 import { useEffect, useState } from "react";
+import Searcher from "./Searcher";
 
 interface Post {
     user: string;
@@ -55,7 +56,7 @@ export default function InPersonEventPage() {
             emoji: "😄",
         },
     ]);
-
+    const [focusedQ, setFocusedQ] = useState(-1);
     useEffect(() => {
         let generatePosts = Array.from({ length: 8 }, () => ({
             user: faker.person.fullName(),
@@ -72,6 +73,7 @@ export default function InPersonEventPage() {
     }, []);
     return (
         <>
+            <Searcher />
             {/* Chat Box*/}
             {showChat && (
                 <aside
@@ -356,10 +358,10 @@ export default function InPersonEventPage() {
                             <Card
                                 fullWidth
                                 key={index}
-                                isHoverable={true}
+                                // isHoverable={true}
                                 style={{ cursor: "pointer", paddingInline: "1.2rem" }}
                             >
-                                <CardBody onClick={() => isShowingChat(!showChat)}>
+                                <CardBody onClick={() => setFocusedQ(index)}>
                                     <Spacer y={2} />
                                     <div className="flex justify-between w-full">
                                         {/* Profile info */}
@@ -457,17 +459,52 @@ export default function InPersonEventPage() {
                                                         </DropdownMenu>
                                                     </Dropdown>
                                                 </div>
+
                                             </div>
                                             <Spacer x={20} />
-                                            <Chip variant="bordered" size="lg" avatar={<p className="tracking-widest" style={{ letterSpacing: '2px' }}>👍😍</p>}>
+                                            <Chip variant="bordered" size="lg" avatar={<p className="tracking-widest" style={{ letterSpacing: '2px' }}>😍😍🥸</p>}>
                                                 <h3 className="px-2">
                                                     {post.reactionCount}
                                                 </h3>
                                             </Chip>
                                         </div>
+
                                     </div>
                                     <Spacer y={4} />
                                     <p className="font-md my-1">{post.content}</p>
+                                    <Spacer y={4} />
+
+                                    <div
+                                        className="w-full flex items-center justify-around"
+                                        style={{
+                                            display: focusedQ == index ? 'flex' : 'none'
+                                        }}
+                                    >
+                                        <Input
+                                            size="lg"
+                                            radius="full"
+                                            type="text"
+                                            placeholder="Type a answer"
+                                            variant="flat"
+
+                                            startContent={
+                                                <Smiley
+                                                    width={20}
+                                                    height={20}
+                                                    className="text-2xl text-default-400 pointer-events-none flex-shrink-0"
+                                                />
+                                            }
+                                            endContent={
+                                                <Button variant="faded" isIconOnly radius="lg">
+                                                    <ArrowUp
+                                                        width={20}
+                                                        height={20}
+                                                        className="text-2xl text-default-400 pointer-events-none flex-shrink-0"
+                                                    />
+                                                </Button>
+                                            }
+                                        />
+                                    </div>
                                     <Spacer y={2} />
                                 </CardBody>
                             </Card>

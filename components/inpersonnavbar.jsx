@@ -39,7 +39,7 @@ export const InPersonNavbar = () => {
   const router = useRouter();
   const pathname = usePathname();
   return (
-    <NextUINavbar maxWidth="xl" position="sticky">
+    <NextUINavbar maxWidth="xl" position="sticky" className="p-unit-10`">
       <NavbarContent className="relative basis-1/5 sm:basis-full  mt-4 ">
         <div className="w-full md:max-w-[992px]  flex  items-center justify-between mx-auto">
           <div className="w-fit">

@@ -9,7 +9,7 @@
   width: 0;
 }
 .faded-gradient {
-  background-color: black;
+  background: linear-gradient(to bottom, transparent 0%, #000000 100%);
 }
 
 body {
