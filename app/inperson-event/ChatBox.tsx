@@ -10,6 +10,7 @@ import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import { Card, CardBody } from "@nextui-org/card";
 import { useRouter } from "next/navigation";
+import { Chip } from "@nextui-org/chip";
 
 
 function ChatBox() {
@@ -69,7 +70,15 @@ function ChatBox() {
                                         <p className="text-sm text-[gray]">
                                             Ullamco magna proident nostrud ad id aliqua quis.
                                         </p>
-                                        <p className="text-[gray] text-[0.5rem]">Now</p>
+                                        <div className="flex justify-between items-center">
+                                            <p className="text-[gray] text-[0.7rem]">Now</p>
+                                            <div className="flex gap-2">
+                                                <Chip>
+                                                    😍
+                                                    <b className="ml-2 text-sm">12</b>
+                                                </Chip>
+                                            </div>
+                                        </div>
                                     </div>
                                 </CardBody>
                             </Card>
@@ -138,7 +147,15 @@ function ChatBox() {
                                         <p className="text-sm text-[gray]">
                                             Ullamco magna proident nostrud ad id aliqua quis.
                                         </p>
-                                        <p className="text-[gray] text-[0.5rem]">Now</p>
+                                        <div className="flex justify-between items-center">
+                                            <p className="text-[gray] text-[0.7rem]">Now</p>
+                                            <div className="flex gap-2">
+                                                <Chip>
+                                                    😍
+                                                    <b className="ml-2 text-sm">12</b>
+                                                </Chip>
+                                            </div>
+                                        </div>
                                     </div>
                                 </CardBody>
                             </Card>
@@ -155,7 +172,7 @@ function ChatBox() {
                         size="lg"
                         radius="full"
                         type="text"
-                        placeholder="Ask a question"
+                        placeholder="Type a message"
                         startContent={
                             <Smiley
                                 width={20}
