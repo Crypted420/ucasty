@@ -53,6 +53,10 @@ export default function InPersonEventPage() {
     ]);
     const [focusedQ, setFocusedQ] = useState(-1);
     useEffect(() => {
+        generatePosts()
+    }, []);
+
+    const generatePosts = () => {
         let generatePosts = Array.from({ length: 8 }, () => ({
             user: faker.person.fullName(),
             content: faker.lorem.paragraphs(),
@@ -67,7 +71,10 @@ export default function InPersonEventPage() {
 
         }));
         setPostData(generatePosts);
-    }, []);
+
+    }
+
+    const [selectedFilterDropdown, setSelecedFilterDropdown] = useState('Popular')
 
     return (
         <>
@@ -115,11 +122,13 @@ export default function InPersonEventPage() {
                                     <ChevronDown width={15} height={15} className="mx-10" />
                                 }
                             >
-                                <h3 className="text-md font-bold">Popular</h3>
+                                <h3 className="text-md font-bold">{selectedFilterDropdown}</h3>
                             </Button>
                         </DropdownTrigger>
                         <DropdownMenu variant="faded" aria-label="Dropdown menu with icons">
                             <DropdownItem
+                                onClick={() => { setSelecedFilterDropdown('Popular'), generatePosts() }}
+
                                 startContent={
                                     <Button size="sm" isIconOnly variant="flat" radius="sm">
                                         <Check width={10} height={10} />
@@ -129,6 +138,7 @@ export default function InPersonEventPage() {
                                 <h3 className="font-normal">Popular</h3>
                             </DropdownItem>
                             <DropdownItem
+                                onClick={() => { setSelecedFilterDropdown('Recent'), generatePosts() }}
                                 startContent={
                                     <Button
                                         size="sm"
@@ -144,6 +154,8 @@ export default function InPersonEventPage() {
                                 <Divider />
                             </DropdownItem>
                             <DropdownItem
+                                onClick={() => { setSelecedFilterDropdown('All Questions'), generatePosts() }}
+
                                 startContent={
                                     <Button size="sm" isIconOnly variant="flat" radius="sm">
                                         <Check width={10} height={10} />
@@ -154,6 +166,7 @@ export default function InPersonEventPage() {
                             </DropdownItem>
 
                             <DropdownItem
+                                onClick={() => { setSelecedFilterDropdown('Starred'), generatePosts() }}
                                 startContent={
                                     <Button size="sm" isIconOnly variant="flat" radius="sm">
                                         <Starred width={10} height={10} />
@@ -164,6 +177,7 @@ export default function InPersonEventPage() {
                             </DropdownItem>
 
                             <DropdownItem
+                                onClick={() => { setSelecedFilterDropdown('Not labeled'), generatePosts() }}
                                 startContent={
                                     <Button size="sm" isIconOnly variant="flat" radius="sm">
                                         <Close width={10} height={10} />
@@ -188,6 +202,7 @@ export default function InPersonEventPage() {
                                     <CardBody onClick={() => setFocusedQ(index)}>
                                         <Spacer y={2} />
                                         <div className="flex justify-between w-full">
+
                                             {/* Profile info */}
                                             <div className="flex gap-4">
                                                 <Avatar src={post.picture} size="lg" radius="md" />
