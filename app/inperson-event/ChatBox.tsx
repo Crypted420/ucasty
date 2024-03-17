@@ -55,8 +55,8 @@ function ChatBox() {
                 <div className="w-full h-full justify-end pb-[25%] px-4 overflow-y-auto remove-scroll-bar">
                     <div className="w-full h-fit flex justify-start items-center">
                         <div className="w-fit max-w-[70%] h-fit py-4 flex items-end gap-2 ">
-                            <div className="w-10 h-8 bg-[purple] flex items-center justify-center rounded-lg">
-                                <h2 className="font-bold">H</h2>
+                            <div className="w-10 h-8 bg-[brown] flex items-center justify-center rounded-lg">
+                                <h2 className="font-bold">S</h2>
                             </div>
                             <Card
                                 fullWidth
@@ -65,7 +65,8 @@ function ChatBox() {
                             >
                                 <CardBody>
                                     <div className="flex flex-col justify-between gap-2">
-                                        <p className="text-sm">
+                                        <h2 className="font-bold">ia221</h2>
+                                        <p className="text-sm text-[gray]">
                                             Ullamco magna proident nostrud ad id aliqua quis.
                                         </p>
                                         <p className="text-[gray] text-[0.5rem]">Now</p>
@@ -87,7 +88,8 @@ function ChatBox() {
                             >
                                 <CardBody>
                                     <div className="flex flex-col justify-between gap-2">
-                                        <p className="text-sm">
+                                        <h2 className="font-bold">Amalia221</h2>
+                                        <p className="text-sm text-[gray]">
                                             Ullamco magna proident nostrud ad id aliqua quis.
                                         </p>
                                         <p className="text-[gray] text-[0.5rem]">Now</p>
@@ -122,8 +124,8 @@ function ChatBox() {
 
                     <div className="w-full h-fit flex justify-start items-center">
                         <div className="w-fit max-w-[70%] h-fit py-4 flex items-end gap-2 ">
-                            <div className="w-10 h-8 bg-[purple] flex items-center justify-center rounded-lg">
-                                <h2 className="font-bold">H</h2>
+                            <div className="w-10 h-8 bg-[brown] flex items-center justify-center rounded-lg">
+                                <h2 className="font-bold">S</h2>
                             </div>
                             <Card
                                 fullWidth
@@ -132,29 +134,8 @@ function ChatBox() {
                             >
                                 <CardBody>
                                     <div className="flex flex-col justify-between gap-2">
-                                        <p className="text-sm">
-                                            Ullamco magna proident nostrud ad id aliqua quis.
-                                        </p>
-                                        <p className="text-[gray] text-[0.5rem]">Now</p>
-                                    </div>
-                                </CardBody>
-                            </Card>
-                        </div>
-                    </div>
-
-                    <div className="w-full h-fit flex justify-start items-center">
-                        <div className="w-fit max-w-[70%] h-fit py-4 flex items-end gap-2 ">
-                            <div className="w-10 h-8 bg-[purple] flex items-center justify-center rounded-lg">
-                                <h2 className="font-bold">H</h2>
-                            </div>
-                            <Card
-                                fullWidth
-                                className=""
-                                style={{ borderRadius: "20px 20px 20px 10px" }}
-                            >
-                                <CardBody>
-                                    <div className="flex flex-col justify-between gap-2">
-                                        <p className="text-sm">
+                                        <h2 className="font-bold">Nathan</h2>
+                                        <p className="text-sm text-[gray]">
                                             Ullamco magna proident nostrud ad id aliqua quis.
                                         </p>
                                         <p className="text-[gray] text-[0.5rem]">Now</p>

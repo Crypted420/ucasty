@@ -286,8 +286,8 @@ export default function InPersonEventPage() {
 
                                                 </div>
                                                 <Spacer x={20} />
-                                                <Chip variant="bordered" size="lg" avatar={<p className="tracking-widest" style={{ letterSpacing: '2px' }}>😍😍🥸</p>}>
-                                                    <h3 className="ml-4">
+                                                <Chip variant="bordered" size="lg" avatar={<p className="tracking-widest" style={{ letterSpacing: '2px', marginRight: '0.2rem' }}>😍🥸</p>}>
+                                                    <h3 >
                                                         {post.reactionCount}
                                                     </h3>
                                                 </Chip>

@@ -21,7 +21,7 @@ import { InPersonNavbar } from "./inpersonnavbar";
 export const Navbar = () => {
 
 	const pathname = usePathname();
-
+	const router = useRouter()
 
 	return (
 		<NextUINavbar maxWidth="xl" position="sticky">

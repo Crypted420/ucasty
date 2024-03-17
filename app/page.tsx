@@ -6,8 +6,10 @@ import { Tabs, Tab } from "@nextui-org/tabs";
 import { Card, CardBody } from "@nextui-org/card";
 import { Chip } from "@nextui-org/chip";
 import { Divider } from "@nextui-org/divider";
+import { useRouter } from "next/navigation";
 
 export default function InPerson() {
+	const router = useRouter();
 	return (
 		<section className="flex md:max-w-[992px] mx-auto flex-col items-center justify-center gap-4 py-8 md:py-10">
 			<div className=" w-full flex justify-between items-center">
@@ -16,6 +18,7 @@ export default function InPerson() {
 					radius="md"
 					className="text-sm font-bold p-4 py-3"
 					variant="flat"
+					onClick={() => router.push('/inperson-event')}
 
 					endContent={<ArrowTopRight />}
 				>
